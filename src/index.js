@@ -122,10 +122,21 @@ window.requestAnimFrame = (function() {
             window.setTimeout(callback, 1000 / 60);
         };
 })();
-
-
-// usage:
-// instead of setInterval(render, 16) ....
+// Determines the distance between two objects from center to center.
+function getDistance(x1, y1, x2, y2) {
+    var xDistance = x2 - x1;
+    var yDistance = y2 - y1;
+    return Math.sqrt(// Pythagoras theorem formula.
+        Math.pow(
+            xDistance,
+            2
+        ) +
+        Math.pow(
+            yDistance,
+            2
+        )
+    );
+};
 
 (function animloop() {
     requestAnimFrame(animloop);
